@@ -1374,3 +1374,17 @@ section{
    }
 
 }
+/* Adjust the play/pause button size */
+.option-btn {
+   padding: 20px 44px; /* Adjust padding to make the button larger */
+   font-size: 24px; /* Adjust font size */
+}
+
+/* Adjust the text area size */
+textarea#userInput {
+   width: 100%; /* Make the text area take full width */
+   height: 600px; /* Adjust the height of the text area */
+   font-size: 16px; /* Adjust font size */
+   padding: 10px; /* Add padding for better readability */
+   box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}

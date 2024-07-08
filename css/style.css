@@ -1388,3 +1388,47 @@ textarea#userInput {
    padding: 10px; /* Add padding for better readability */
    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
+/* Add this to your css/style.css file */
+.reading-container {
+   display: flex;
+   justify-content: space-between;
+   padding: 20px;
+}
+
+.paragraph-section, .question-section {
+   width: 45%;
+   background: #f9f9f9;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.paragraph-section {
+   overflow-y: auto;
+   max-height: 600px;
+}
+
+.question-section {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.navigation-buttons {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+button {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #0056b3;
+}

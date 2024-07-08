@@ -101,12 +101,9 @@
             const questions = document.getElementById('questions');
 
             const parts = text.split('\n\n');
-            const articleContent = parts.slice(0, 4).join('<br><br>');
+            const articleContent = parts.filter(part => !part.match(/^\d+\./)).join('<br><br>');
 
-            const questionList = [];
-            for (let i = 4; i < parts.length; i++) {
-               questionList.push(parts[i]);
-            }
+            const questionList = parts.filter(part => part.match(/^\d+\./));
 
             paragraphs.innerHTML = articleContent;
 

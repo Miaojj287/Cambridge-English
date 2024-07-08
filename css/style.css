@@ -1389,15 +1389,20 @@ textarea#userInput {
    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 /* Add this to your css/style.css file */
+body {
+   font-family: Arial, sans-serif;
+}
+
 .reading-container {
    display: flex;
    justify-content: space-between;
    padding: 20px;
+   background-color: #f8f9fa;
 }
 
 .paragraph-section, .question-section {
    width: 45%;
-   background: #f9f9f9;
+   background: #ffffff;
    padding: 20px;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1412,12 +1417,15 @@ textarea#userInput {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   height: 100%;
 }
 
 .navigation-buttons {
    display: flex;
    justify-content: space-between;
    margin-top: 20px;
+   position: relative;
+   bottom: 0;
 }
 
 button {
@@ -1431,4 +1439,8 @@ button {
 
 button:hover {
    background-color: #0056b3;
+}
+
+h2, h3 {
+   color: #333;
 }

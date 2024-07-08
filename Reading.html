@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
+   <title>Reading Test</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -72,10 +72,12 @@
 
 <section class="home-grid">
    <div class="reading-container">
-      <div class="paragraph-section">
+      <div class="paragraph-section" id="left-column">
+         <h2 id="title">The Rise of Teotihuacán</h2>
          <div id="paragraphs"></div>
       </div>
       <div class="question-section">
+         <h3>Select one of the statements below.</h3>
          <div id="questions"></div>
          <div class="navigation-buttons">
             <button id="backBtn" onclick="navigateQuestion(-1)">Back</button>
@@ -90,6 +92,49 @@
 </footer>
 
 <!-- custom js file link  -->
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+      fetch('read/reading1.txt')
+         .then(response => response.text())
+         .then(text => {
+            const paragraphs = document.getElementById('paragraphs');
+            const questions = document.getElementById('questions');
+
+            const parts = text.split('\n\n');
+            const articleContent = parts.slice(0, 4).join('<br><br>');
+
+            const questionList = [];
+            for (let i = 4; i < parts.length; i++) {
+               questionList.push(parts[i]);
+            }
+
+            paragraphs.innerHTML = articleContent;
+
+            let currentQuestionIndex = 0;
+            const totalQuestions = questionList.length;
+
+            function displayQuestion(index) {
+               questions.innerHTML = questionList[index];
+            }
+
+            function navigateQuestion(direction) {
+               currentQuestionIndex += direction;
+               if (currentQuestionIndex < 0) {
+                  currentQuestionIndex = 0;
+               } else if (currentQuestionIndex >= totalQuestions) {
+                  currentQuestionIndex = totalQuestions - 1;
+               }
+               displayQuestion(currentQuestionIndex);
+            }
+
+            document.getElementById('backBtn').addEventListener('click', () => navigateQuestion(-1));
+            document.getElementById('nextBtn').addEventListener('click', () => navigateQuestion(1));
+
+            displayQuestion(currentQuestionIndex);
+         })
+         .catch(error => console.error('Error fetching the reading material:', error));
+   });
+</script>
 <script src="js/script.js"></script>
 </body>
 </html>

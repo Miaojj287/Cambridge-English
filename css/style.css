@@ -1376,8 +1376,8 @@ section{
 }
 /* Adjust the play/pause button size */
 .option-btn {
-   padding: 20px 44px; /* Adjust padding to make the button larger */
-   font-size: 24px; /* Adjust font size */
+   padding: 30px 64px; /* Adjust padding to make the button larger */
+   font-size: 34px; /* Adjust font size */
 }
 
 /* Adjust the text area size */
@@ -1443,4 +1443,86 @@ button:hover {
 
 h2, h3 {
    color: #333;
+}
+/* Add this to your css/style.css file */
+audio#audioPlayer {
+   width: 230%;  /* Set the width as desired, e.g., 100% for full width */
+   height: 100px; /* Set the height as desired, e.g., 50px */
+}
+/* Add this to your css/style.css file */
+body {
+   font-family: Arial, sans-serif;
+}
+
+.reading-container {
+   display: flex;
+   justify-content: space-between;
+   padding: 20px;
+   background-color: #f8f9fa;
+}
+
+.paragraph-section, .question-section {
+   width: 45%;
+   background: #ffffff;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.paragraph-section {
+   overflow-y: auto;
+   max-height: 600px;
+}
+
+.question-section {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 100%;
+}
+
+.navigation-buttons {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+button {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #0056b3;
+}
+
+h2, h3 {
+   color: #333;
+}
+
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+li {
+   margin: 10px 0;
+   padding: 10px;
+   background: #f1f1f1;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background 0.3s ease;
+}
+
+li:hover {
+   background: #ddd;
+}
+
+.option-selected {
+   background: #28a745 !important;
+   color: #fff;
 }

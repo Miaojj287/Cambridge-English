@@ -10,6 +10,29 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <style>
+      .option-btn {
+         display: inline-block;
+         padding: 10px 20px;
+         font-size: 14px;
+         font-weight: 600;
+         text-transform: uppercase;
+         border: 2px solid #007bff;
+         background: #007bff;
+         color: #fff;
+         cursor: pointer;
+         transition: background 0.3s ease;
+      }
+
+      .option-btn:hover {
+         background: #0056b3;
+      }
+
+      .option-selected {
+         background: #28a745;
+         border-color: #28a745;
+      }
+   </style>
 </head>
 <body>
 
@@ -73,7 +96,7 @@
 <section class="home-grid">
    <div class="reading-container">
       <div class="paragraph-section" id="left-column">
-         <h2 id="title">The Rise of Teotihuacán</h2>
+         <h2 id="title">Reading Passage</h2>
          <div id="paragraphs"></div>
       </div>
       <div class="question-section">
@@ -111,7 +134,14 @@
             const totalQuestions = questionList.length;
 
             function displayQuestion(index) {
-               questions.innerHTML = questionList[index];
+               const questionParts = questionList[index].split('\n');
+               let questionText = `<p>${questionParts[0]}</p>`;
+               questionText += '<ul>';
+               for (let i = 1; i < questionParts.length; i++) {
+                  questionText += `<li onclick="selectOption(this)">${questionParts[i]}</li>`;
+               }
+               questionText += '</ul>';
+               questions.innerHTML = questionText;
             }
 
             function navigateQuestion(direction) {
@@ -123,6 +153,14 @@
                }
                displayQuestion(currentQuestionIndex);
             }
+
+            window.selectOption = function(option) {
+               const allOptions = option.parentElement.children;
+               for (let i = 0; i < allOptions.length; i++) {
+                  allOptions[i].classList.remove('option-selected');
+               }
+               option.classList.add('option-selected');
+            };
 
             document.getElementById('backBtn').addEventListener('click', () => navigateQuestion(-1));
             document.getElementById('nextBtn').addEventListener('click', () => navigateQuestion(1));
